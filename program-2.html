@@ -214,8 +214,7 @@
   <div class="container">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Tiger Paw Martial Arts Home">
-        <div class="logo-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.5v7l-8 4-8-4v-7l8-4.32z"/></svg></div>
-        Tiger Paw Martial Arts
+        <img src="images/logo.png" alt="Tiger Paw Martial Arts" height="48" style="height:48px;width:auto;display:block">
       </a>
       <nav id="main-nav" role="navigation" aria-label="Main navigation">
         <a href="#" onclick="openModal('modal-kit');return false">Pricing</a>
@@ -273,7 +272,7 @@
       <!-- LEFT: Photo + meta pills -->
       <div class="prog-photo-col">
         <div class="prog-photo">
-          <img src="images/facility-1.webp" alt="Teens &amp; Adult Taekwondo at Tiger Paw Martial Arts"
+          <img src="images/adult-class.webp" alt="Teens &amp; Adult Taekwondo at Tiger Paw Martial Arts"
                loading="lazy" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="prog-photo-meta">
@@ -520,7 +519,7 @@
     <p class="final-desc">Download and get access to our starter kit which includes details on our programs, which program is right for you or your kids, pricing, schedules, a tour of our campus, and special promotions.</p>
     <div class="final-ctas">
       <button class="btn btn-primary" onclick="openModal('modal-trial')">Book Free Intro Session</button>
-      <button class="btn btn-ghost" onclick="openModal('modal-kit')">Claim Your Starter Pass</button>
+      <button class="btn btn-ghost" onclick="openModal('modal-kit')"><span>Download Starter Kit</span><span style="display:block;font-size:12px;font-weight:400;opacity:.8;margin-top:2px">Access Pricing &amp; Schedule</span></button>
     </div>
   </div>
 </section>
@@ -602,15 +601,15 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-kit')" aria-label="Close">×</button>
     <div id="modal-kit-body">
-      <h2 class="modal-title" id="title-kit">3-Class Starter Pass &#x2014; $29 + Free T-Shirt</h2>
-      <p class="modal-sub">Get 3 classes + a free Tiger Paw t-shirt for just $29. No long-term commitment.</p>
+      <h2 class="modal-title" id="title-kit">Looking For Our Pricing?</h2>
+      <p class="modal-sub">Fill out the form below and one of our coaches will send you our pricing, class schedule, and EXCLUSIVE promo information for our classes.</p>
       <form class="modal-form" onsubmit="submitModal(event,'modal-kit','https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/Ta6mCzoxZvwmZfhcW8aU')">
         <div class="field"><label for="kit-name">Name</label><input id="kit-name" type="text" name="name" placeholder="Your full name" required autocomplete="name"></div>
         <div class="field"><label for="kit-email">Email</label><input id="kit-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email"></div>
         <div class="field"><label for="kit-phone">Phone</label><input id="kit-phone" type="tel" name="phone" placeholder="(555) 555-5555" required autocomplete="tel"></div>
         <div class="field"><label for="kit-program">Program</label><select id="kit-program" name="program"><option value="" disabled selected>Select a program…</option><option value="kids">Kids</option><option value="teens-adults">Teens &amp; Adults</option><option value="not-sure">Not Sure</option></select></div>
         <p class="modal-consent">By submitting you agree to receive SMS messages from Tiger Paw Martial Arts. Reply STOP to unsubscribe. Msg &amp; data rates may apply. <a href="#">Privacy Policy</a>.</p>
-        <button type="submit" class="modal-submit">Claim My Starter Pass →</button>
+        <button type="submit" class="modal-submit">Send Me The Info →</button>
       </form>
     </div>
     <div class="modal-success" id="modal-kit-success"><div class="success-icon">📋</div><h3 class="success-title">On Its Way!</h3><p class="success-body">Check your inbox — we're sending our full pricing guide and schedule now.</p></div>

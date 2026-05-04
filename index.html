@@ -831,7 +831,7 @@
      HERO — FULL VIEWPORT
 ============================================================ -->
 <section id="hero">
-  <div class="hero-bg" style="background-image:url('images/coach-demo.webp')"></div>
+  <div class="hero-bg" style="background-image:url('images/hero-image.webp')"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
@@ -843,7 +843,7 @@
     </p>
     <div class="hero-ctas">
       <button class="btn btn-primary" onclick="openModal('modal-trial')">Book Free Intro Session</button>
-      <button class="btn btn-ghost" onclick="openModal('modal-kit')">Claim Your Starter Pass</button>
+      <button class="btn btn-ghost" onclick="openModal('modal-kit')"><span>Download Starter Kit</span><span style="display:block;font-size:12px;font-weight:400;opacity:.8;margin-top:2px">Access Pricing &amp; Schedule</span></button>
     </div>
   </div>
 
@@ -1015,7 +1015,7 @@
     </article>
 
     <article class="program-card reveal">
-      <img src="images/facility-1.webp" alt="Teen and Adult Taekwondo at Tiger Paw" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block">
+      <img src="images/adult-class.webp" alt="Teen and Adult Taekwondo at Tiger Paw" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block">
       <div class="program-body">
         <span class="program-tag">Ages 13 &amp; Up</span>
         <h3>Teens &amp; Adult Taekwondo</h3>
@@ -1190,7 +1190,7 @@
         <span class="faq-toggle" aria-hidden="true">+</span>
       </div>
       <div class="faq-a">
-        We offer several membership options to fit different budgets and goals. Pricing varies based on program and membership type. The best way to get current details is to claim our 3-Class Starter Pass — you'll get 3 classes plus a free Tiger Paw t-shirt for just $29, and we'll share full membership options after your first session.
+        We offer several membership options to fit different budgets and goals. Pricing varies based on program and membership type. Fill out the Starter Kit form and one of our coaches will send you our full pricing guide, class schedule, and current promotions — no commitment required.
       </div>
     </div>
 
@@ -1448,8 +1448,8 @@
     <button class="modal-close" onclick="closeModal('modal-kit')" aria-label="Close dialog">×</button>
 
     <div id="modal-kit-body">
-      <h2 class="modal-title" id="title-kit">3-Class Starter Pass &#x2014; $29 + Free T-Shirt</h2>
-      <p class="modal-sub">Get 3 classes + a free Tiger Paw t-shirt for just $29. No long-term commitment.</p>
+      <h2 class="modal-title" id="title-kit">Looking For Our Pricing?</h2>
+      <p class="modal-sub">Fill out the form below and one of our coaches will send you our pricing, class schedule, and EXCLUSIVE promo information for our classes.</p>
 
       <form class="modal-form" id="form-kit" onsubmit="submitModal(event,'modal-kit','https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/Ta6mCzoxZvwmZfhcW8aU')">
         <div class="field">
@@ -1478,7 +1478,7 @@
           Reply STOP to unsubscribe. Msg &amp; data rates may apply.
           <a href="#">Privacy Policy</a>.
         </p>
-        <button type="submit" class="modal-submit">Claim My Starter Pass →</button>
+        <button type="submit" class="modal-submit">Send Me The Info →</button>
       </form>
     </div>
 

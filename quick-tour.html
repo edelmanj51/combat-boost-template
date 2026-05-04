@@ -54,13 +54,17 @@
       .nav-toggle{display:flex}
       .header-cta{display:none}
     }
-    /* ── Page banner ── */
-    .page-banner{background:linear-gradient(135deg,#07101e 0%,#1a3a6e 100%);color:white;padding:130px 24px 64px;text-align:center}
-    .page-banner h1{font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.1;margin-bottom:14px}
-    .page-banner p{font-size:18px;opacity:.8;max-width:600px;margin:0 auto}
-    /* ── Tour intro ── */
-    .tour-intro{padding:64px 24px;text-align:center;max-width:800px;margin:0 auto}
-    .tour-intro p{font-size:18px;color:var(--gray);line-height:1.75}
+    /* ── Tour hero ── */
+    .tour-hero{padding:110px 24px 72px;background:var(--light)}
+    .tour-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+    .tour-hero-text h1{font-size:clamp(26px,3.6vw,46px);font-weight:900;line-height:1.15;margin-bottom:20px;color:var(--dark)}
+    .tour-hero-text p{font-size:17px;color:var(--gray);line-height:1.75;margin-bottom:32px}
+    .tour-hero-photo{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+    .tour-hero-photo img{width:100%;display:block;object-fit:cover}
+    @media(max-width:800px){
+      .tour-hero-grid{grid-template-columns:1fr;gap:32px}
+      .tour-hero-photo{order:-1}
+    }
     /* ── Gallery ── */
     #gallery{padding:0 24px 80px}
     .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto}
@@ -155,8 +159,7 @@
   <div class="container">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Tiger Paw Martial Arts Home">
-        <div class="logo-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.5v7l-8 4-8-4v-7l8-4.32z"/></svg></div>
-        Tiger Paw Martial Arts
+        <img src="images/logo.png" alt="Tiger Paw Martial Arts" height="48" style="height:48px;width:auto;display:block">
       </a>
       <nav id="main-nav" role="navigation" aria-label="Main navigation">
         <a href="#" onclick="openModal('modal-kit');return false">Pricing</a>
@@ -187,13 +190,17 @@
   </div>
 </header>
 
-<section class="page-banner">
-  <h1>Campus Quick Tour</h1>
-  <p>Take a look inside Tiger Paw Martial Arts — our mats, our facility, our community.</p>
-</section>
-
-<section class="tour-intro">
-  <p>Tiger Paw Martial Arts is proud to offer a world-class training facility right here in Middle River. From our professional-grade mats to our welcoming community areas, every detail of our campus is designed to help you train at your best. Take a look around — we'd love to see you here in person.</p>
+<section class="tour-hero">
+  <div class="tour-hero-grid">
+    <div class="tour-hero-text reveal">
+      <h1>Quick Tour of Tiger Paw Martial Arts</h1>
+      <p>Tiger Paw Martial Arts is Middle River's most welcoming martial arts school. Our facility features professional-grade training mats, a dedicated kids area, and a community that feels like family. Come see what 20 years of serving Baltimore County looks like from the inside.</p>
+      <button class="btn btn-primary" onclick="openModal('modal-trial')">Get Started — Free Intro Class</button>
+    </div>
+    <div class="tour-hero-photo reveal">
+      <img src="images/facility-exterior.webp" alt="Tiger Paw Martial Arts facility in Middle River" loading="eager">
+    </div>
+  </div>
 </section>
 
 <section id="gallery">
@@ -224,7 +231,7 @@
     </div>
 
     <div class="gallery-item reveal">
-      <img src="images/facility-1.webp" alt="Tiger Paw Martial Arts Training Floor" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+      <img src="images/adult-class.webp" alt="Tiger Paw Martial Arts Training Floor" loading="lazy" style="width:100%;height:100%;object-fit:cover">
       <div class="gallery-caption">
         <h3>Adult Training Floor</h3>
         <p>The adult training floor is designed for serious Taekwondo and Tang Soo Do practice. Teens and adults train here in a structured, focused environment.</p>
@@ -354,15 +361,15 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('modal-kit')" aria-label="Close">×</button>
     <div id="modal-kit-body">
-      <h2 class="modal-title" id="title-kit">Get Pricing + Schedule</h2>
-      <p class="modal-sub">We'll send you our full program guide, pricing, and weekly schedule.</p>
+      <h2 class="modal-title" id="title-kit">Looking For Our Pricing?</h2>
+      <p class="modal-sub">Fill out the form below and one of our coaches will send you our pricing, class schedule, and EXCLUSIVE promo information for our classes.</p>
       <form class="modal-form" onsubmit="submitModal(event,'modal-kit','https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/Ta6mCzoxZvwmZfhcW8aU')">
         <div class="field"><label for="kit-name">Name</label><input id="kit-name" type="text" name="name" placeholder="Your full name" required autocomplete="name"></div>
         <div class="field"><label for="kit-email">Email</label><input id="kit-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email"></div>
         <div class="field"><label for="kit-phone">Phone</label><input id="kit-phone" type="tel" name="phone" placeholder="(555) 555-5555" required autocomplete="tel"></div>
         <div class="field"><label for="kit-program">Program</label><select id="kit-program" name="program"><option value="" disabled selected>Select a program…</option><option value="kids">Kids</option><option value="teens-adults">Teens &amp; Adults</option><option value="not-sure">Not Sure</option></select></div>
         <p class="modal-consent">By submitting you agree to receive SMS messages from Tiger Paw Martial Arts. Reply STOP to unsubscribe. Msg &amp; data rates may apply. <a href="#">Privacy Policy</a>.</p>
-        <button type="submit" class="modal-submit">Send Me the Pricing Guide →</button>
+        <button type="submit" class="modal-submit">Send Me The Info →</button>
       </form>
     </div>
     <div class="modal-success" id="modal-kit-success"><div class="success-icon">📋</div><h3 class="success-title">On Its Way!</h3><p class="success-body">Check your inbox — we're sending our full pricing guide and schedule now.</p></div>

@@ -519,7 +519,10 @@
     <p class="final-desc">Download and get access to our starter kit which includes details on our programs, which program is right for you or your kids, pricing, schedules, a tour of our campus, and special promotions.</p>
     <div class="final-ctas">
       <button class="btn btn-primary" onclick="openModal('modal-trial')">Book Free Intro Session</button>
-      <button class="btn btn-ghost" onclick="openModal('modal-kit')"><span>Download Starter Kit</span><span style="display:block;font-size:12px;font-weight:400;opacity:.8;margin-top:2px">Access Pricing &amp; Schedule</span></button>
+      <button class="btn btn-ghost" onclick="openModal('modal-kit')" style="flex-direction:column;gap:1px;padding:13px 28px;line-height:1.25">
+        <span style="font-size:16px;font-weight:700">Download Starter Kit</span>
+        <span style="font-size:11px;font-weight:500;opacity:.85;text-transform:uppercase;letter-spacing:.5px">Access Pricing &amp; Schedule</span>
+      </button>
     </div>
   </div>
 </section>
@@ -740,6 +743,8 @@
       if(mid==='modal-quiz'){
         document.querySelectorAll('#modal-quiz .quiz-step').forEach(function(s){s.classList.remove('active')});
         document.getElementById('qz-success').classList.add('active');
+      } else if(mid==='modal-trial'){
+        window.location.href='https://api.leadconnectorhq.com/widget/group/0v7gsGRPNfa5WrQSFa7k';
       } else {
         var b=document.getElementById(mid+'-body'),s=document.getElementById(mid+'-success');
         if(b)b.style.display='none';if(s)s.style.display='block';

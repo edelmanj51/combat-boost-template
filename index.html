@@ -1,0 +1,1870 @@
+<!-- Build trigger: v1.3.0 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Paw Martial Arts | Martial Arts in Middle River</title>
+  <meta name="description" content="Tiger Paw Martial Arts offers world-class martial arts training in Middle River. Build confidence, discipline, and real self-defense skills. Book your free trial today.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Tiger Paw Martial Arts | Martial Arts in Middle River">
+  <meta property="og:description" content="World-class martial arts for all ages in Middle River. Book your free trial class today.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.tigerpawma.com">
+
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui,
+        'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a2e; line-height: 1.6; overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; outline: none; font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --blue:        #2563eb;
+      --blue-dark:   #1d4ed8;
+      --blue-light:  #eff6ff;
+      --gold:        #d4a017;
+      --dark:        #0f172a;
+      --dark-2:      #1e293b;
+      --gray:        #64748b;
+      --gray-light:  #e2e8f0;
+      --light:       #f8fafc;
+      --white:       #ffffff;
+      --radius:      8px;
+      --radius-lg:   12px;
+      --shadow:      0 4px 20px rgba(0,0,0,.10);
+      --shadow-lg:   0 8px 40px rgba(0,0,0,.15);
+      --transition:  all .2s ease;
+    }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .container    { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .text-center  { text-align: center; }
+    .eyebrow {
+      display: block; font-size: 13px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 10px;
+    }
+    .section-title { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; }
+    .section-sub   { font-size: 18px; color: var(--gray); margin-top: 12px; }
+
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 28px; border-radius: var(--radius); font-size: 16px;
+      font-weight: 700; text-align: center; transition: var(--transition);
+      cursor: pointer; white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--blue); color: var(--white);
+      border: 2px solid var(--blue);
+    }
+    .btn-primary:hover {
+      background: var(--blue-dark); border-color: var(--blue-dark);
+      transform: translateY(-2px); box-shadow: var(--shadow);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,.7);
+    }
+    .btn-ghost:hover {
+      background: var(--white); color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       HEADER — STICKY
+    ============================================================ */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(0,0,0,.07);
+      transition: box-shadow .3s;
+    }
+    .header-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; height: 72px; gap: 20px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 21px; font-weight: 900; color: var(--dark);
+      white-space: nowrap; letter-spacing: -.4px; flex-shrink: 0;
+    }
+    .logo-icon {
+      /* SWAP: Replace with <img src="logo.svg"> */
+      width: 40px; height: 40px; background: var(--blue);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .logo-icon svg { width: 22px; height: 22px; fill: white; }
+
+    /* Desktop Nav */
+    #main-nav {
+      display: flex; align-items: center; gap: 4px; flex: 1;
+      justify-content: center;
+    }
+    #main-nav > a, .nav-dropdown > a {
+      padding: 8px 13px; border-radius: 6px;
+      font-weight: 600; font-size: 15px; color: var(--dark-2);
+      transition: var(--transition); display: flex; align-items: center; gap: 4px;
+    }
+    #main-nav > a:hover, .nav-dropdown > a:hover {
+      background: var(--light); color: var(--blue);
+    }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 10px; opacity: .7; }
+    .dropdown-menu {
+      position: absolute; top: calc(100% + 8px); left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: var(--white); border-radius: 10px;
+      box-shadow: var(--shadow-lg); min-width: 210px;
+      padding: 8px; opacity: 0; pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .nav-dropdown.open .dropdown-menu {
+      opacity: 1; pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-menu a {
+      display: block; padding: 10px 14px;
+      border-radius: 6px; font-size: 14px; font-weight: 500;
+      color: var(--dark-2); transition: var(--transition);
+    }
+    .dropdown-menu a:hover { background: var(--light); color: var(--blue); }
+    .dropdown-menu .dropdown-divider {
+      height: 1px; background: var(--gray-light); margin: 6px 0;
+    }
+
+    /* Header CTA */
+    .header-cta { padding: 10px 22px; font-size: 15px; flex-shrink: 0; }
+
+    /* Mobile toggle */
+    .nav-toggle {
+      display: none; background: none; border: none;
+      padding: 8px; flex-direction: column; gap: 5px;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dark); transition: .3s; border-radius: 2px;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 900px) {
+      #main-nav {
+        display: none; flex-direction: column; align-items: flex-start;
+        position: absolute; top: 72px; left: 0; right: 0;
+        background: var(--white); padding: 12px 20px 20px;
+        box-shadow: var(--shadow-lg); border-top: 1px solid var(--gray-light);
+        gap: 2px;
+      }
+      #main-nav.open { display: flex; }
+      #main-nav > a, .nav-dropdown > a { width: 100%; }
+      .nav-dropdown .dropdown-menu {
+        position: static; opacity: 1; pointer-events: all;
+        transform: none; box-shadow: none; border-left: 3px solid var(--blue-light);
+        border-radius: 0; padding: 4px 0 4px 12px; min-width: auto;
+      }
+      .nav-toggle { display: flex; }
+      .header-cta { display: none; }
+    }
+
+    /* ============================================================
+       HERO — FULL VIEWPORT
+    ============================================================ */
+    #hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; padding-top: 72px;
+    }
+
+    /* SWAP: Set background-image: url('hero.jpg') on .hero-bg and remove gradient */
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #07101e 0%, #1a3a6e 55%, #0c1e36 100%);
+    }
+    /* DELETE this entire .hero-img-placeholder div once a real image is in */
+    .hero-img-placeholder {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, rgba(255,255,255,.015) 0px,
+        rgba(255,255,255,.015) 1px, transparent 1px, transparent 12px
+      );
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-placeholder span {
+      color: rgba(255,255,255,.12); font-size: 13px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+    }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.42); }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; color: var(--white);
+      padding: 80px 24px; max-width: 820px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.12); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.2); color: var(--white);
+      padding: 7px 18px; border-radius: 24px;
+      font-size: 13px; font-weight: 700; letter-spacing: .5px;
+      margin-bottom: 28px;
+    }
+    .hero-title {
+      font-size: clamp(38px, 7vw, 76px); font-weight: 900; line-height: 1.08;
+      margin-bottom: 20px; text-shadow: 0 2px 24px rgba(0,0,0,.35);
+    }
+    .hero-title span { color: #93c5fd; }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px); opacity: .88; margin-bottom: 40px;
+      max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.65;
+    }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-ctas .btn { min-width: 200px; padding: 17px 34px; font-size: 17px; }
+
+    .hero-scroll {
+      position: absolute; bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.5); font-size: 12px;
+      text-align: center; letter-spacing: .5px;
+      animation: hero-bounce 2.4s ease-in-out infinite;
+    }
+    .hero-scroll::before {
+      content: '↓'; display: block; font-size: 18px; margin-bottom: 4px;
+    }
+    @keyframes hero-bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ============================================================
+       MISSION BAND
+    ============================================================ */
+    #mission-band {
+      background: var(--dark); color: var(--white);
+      padding: 36px 24px; text-align: center;
+    }
+    .mission-inner { max-width: 800px; margin: 0 auto; }
+    .mission-inner h2 {
+      font-size: clamp(22px, 3.5vw, 34px); font-weight: 800; letter-spacing: -.5px;
+    }
+    .mission-inner h2 em { color: #93c5fd; font-style: normal; }
+    .mission-inner p { margin-top: 10px; font-size: 16px; opacity: .7; }
+
+    /* ============================================================
+       SOCIAL PROOF BAR
+    ============================================================ */
+    #social-proof {
+      background: var(--light); padding: 52px 24px;
+      border-top: 1px solid var(--gray-light);
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 36px; max-width: 900px; margin: 0 auto; text-align: center;
+    }
+    .proof-item {}
+    .proof-stars { color: #f59e0b; font-size: 22px; letter-spacing: 3px; }
+    .proof-number {
+      font-size: clamp(44px, 6vw, 68px); font-weight: 900;
+      color: var(--blue); line-height: 1;
+    }
+    .proof-rating { font-size: 52px; font-weight: 900; color: var(--dark); line-height: 1; }
+    .proof-label { font-size: 15px; color: var(--gray); margin-top: 8px; font-weight: 500; }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials { padding: 88px 24px; background: var(--white); }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .testi-card {
+      background: var(--light); border-radius: var(--radius-lg);
+      padding: 36px 32px; border: 1px solid var(--gray-light);
+      position: relative; transition: var(--transition);
+    }
+    .testi-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .testi-card::before {
+      content: '\201C'; position: absolute; top: 12px; left: 18px;
+      font-size: 72px; color: var(--blue); opacity: .15;
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .testi-text {
+      font-size: 15px; line-height: 1.75; color: #334155;
+      margin-bottom: 24px; padding-top: 12px;
+    }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      /* SWAP: Replace with <img src="photo.jpg" alt="Name"> */
+      width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 18px;
+    }
+    .testi-name   { font-weight: 700; font-size: 15px; color: var(--dark); }
+    .testi-role   { font-size: 13px; color: var(--gray); }
+    .testi-stars  { color: #f59e0b; font-size: 13px; margin-top: 3px; }
+
+    /* ============================================================
+       WHY CHOOSE US
+    ============================================================ */
+    #why-us { padding: 88px 24px; background: var(--dark); color: var(--white); }
+    .why-header .section-sub { color: rgba(255,255,255,.6); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px; max-width: 1100px; margin: 52px auto 0;
+    }
+    .why-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-lg); padding: 40px 32px; text-align: center;
+      transition: var(--transition);
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,.09); transform: translateY(-4px);
+    }
+    .why-icon {
+      width: 68px; height: 68px; background: var(--blue);
+      border-radius: 14px; display: flex; align-items: center;
+      justify-content: center; margin: 0 auto 24px;
+      box-shadow: 0 6px 24px rgba(37,99,235,.35);
+    }
+    .why-icon svg { width: 34px; height: 34px; fill: white; }
+    .why-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .why-card p  { font-size: 15px; line-height: 1.7; opacity: .72; }
+
+    /* ============================================================
+       PROGRAMS
+    ============================================================ */
+    #programs { padding: 88px 24px; background: var(--light); }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 28px; max-width: 1100px; margin: 52px auto 0;
+    }
+    .program-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .program-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .program-photo {
+      /* SWAP: Replace with <img src="program.jpg" alt="Program Name"> */
+      height: 230px; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #1a3a6e 0%, #2563eb 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .program-photo-label {
+      color: rgba(255,255,255,.25); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; position: relative; z-index: 1;
+    }
+    .program-body { padding: 28px; }
+    .program-tag {
+      display: inline-block; background: var(--blue-light); color: var(--blue);
+      padding: 4px 12px; border-radius: 20px; font-size: 12px;
+      font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .program-body h3 { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+    .program-body p  { font-size: 15px; color: var(--gray); line-height: 1.65; margin-bottom: 18px; }
+    .program-meta {
+      display: flex; gap: 16px; margin-bottom: 22px; flex-wrap: wrap;
+    }
+    .program-meta span {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--gray); font-weight: 600;
+    }
+    .program-meta span::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--blue); border-radius: 50%; flex-shrink: 0;
+    }
+    .program-body .btn { width: 100%; padding: 13px; font-size: 15px; }
+
+    /* ============================================================
+       HOW TO GET STARTED
+    ============================================================ */
+    #get-started { padding: 88px 24px; background: var(--white); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px; max-width: 1000px; margin: 52px auto 0;
+      position: relative;
+    }
+    .steps-connector {
+      display: none; position: absolute;
+      top: 36px; left: calc(16.6% + 36px); right: calc(16.6% + 36px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--blue) 100%);
+    }
+    @media (min-width: 768px) { .steps-connector { display: block; } }
+    .step-card { text-align: center; }
+    .step-num {
+      width: 72px; height: 72px; background: var(--blue); color: var(--white);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 30px; font-weight: 900; margin: 0 auto 22px;
+      box-shadow: 0 6px 24px rgba(37,99,235,.35); position: relative; z-index: 1;
+    }
+    .step-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
+    .step-card p  { font-size: 15px; color: var(--gray); line-height: 1.65; }
+    .get-started-cta { text-align: center; margin-top: 52px; }
+    .get-started-cta p { margin-top: 12px; font-size: 14px; color: var(--gray); }
+
+    /* ============================================================
+       INSTRUCTORS
+    ============================================================ */
+    #instructors { padding: 88px 24px; background: var(--light); }
+    .instructors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px; max-width: 1100px; margin: 52px auto 0;
+    }
+    .instructor-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow); text-align: center;
+    }
+    .instructor-photo {
+      /* SWAP: Replace with <img src="instructor.jpg" alt="Name"> */
+      height: 290px; overflow: hidden;
+      background: linear-gradient(180deg, #1a3a6e 0%, #374151 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.22); font-size: 12px;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .instructor-card.featured .instructor-photo {
+      height: 330px;
+      background: linear-gradient(180deg, #1a3a6e 0%, #2563eb 100%);
+    }
+    .instructor-info { padding: 26px; }
+    .instructor-badge {
+      display: inline-block; background: #fef3c7; color: #92400e;
+      padding: 3px 12px; border-radius: 20px; font-size: 12px;
+      font-weight: 700; margin-bottom: 8px;
+    }
+    .instructor-badge.coach {
+      background: var(--blue-light); color: var(--blue-dark);
+    }
+    .instructor-name  { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+    .instructor-title { font-size: 14px; color: var(--blue); font-weight: 600; margin-bottom: 12px; }
+    .instructor-bio   { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+    /* ============================================================
+       GOOGLE REVIEWS
+    ============================================================ */
+    #google-reviews { padding: 88px 24px; background: var(--white); }
+    .google-badge {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 14px;
+    }
+    .google-g {
+      width: 34px; height: 34px; background: #4285f4; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 900; font-size: 18px;
+    }
+    .google-badge-label { font-weight: 700; font-size: 19px; color: var(--dark); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 20px; max-width: 1100px; margin: 48px auto 0;
+    }
+    .review-card {
+      background: var(--light); border-radius: 10px; padding: 24px;
+      border: 1px solid var(--gray-light); transition: var(--transition);
+    }
+    .review-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .review-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 14px;
+    }
+    .reviewer-info { display: flex; align-items: center; gap: 10px; }
+    .reviewer-avatar {
+      /* SWAP: Replace with reviewer profile photo if available */
+      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #4285f4, #34a853);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 15px;
+    }
+    .reviewer-name { font-weight: 700; font-size: 14px; color: var(--dark); }
+    .review-date   { font-size: 12px; color: var(--gray); margin-top: 1px; }
+    .review-stars  { color: #f59e0b; font-size: 15px; letter-spacing: 1px; }
+    .review-text   { font-size: 14px; line-height: 1.75; color: #334155; }
+    .via-google    { font-size: 12px; color: var(--gray); margin-top: 12px; font-style: italic; }
+
+    /* ============================================================
+       FAQ ACCORDION
+    ============================================================ */
+    #faq { padding: 88px 24px; background: var(--light); }
+    .faq-wrap { max-width: 760px; margin: 48px auto 0; }
+    .faq-item {
+      background: var(--white); border-radius: 10px;
+      margin-bottom: 10px; overflow: hidden;
+      border: 1px solid var(--gray-light);
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px; cursor: pointer;
+      font-size: 16px; font-weight: 700; color: var(--dark);
+      user-select: none; transition: background .2s;
+      gap: 12px;
+    }
+    .faq-q:hover { background: var(--light); }
+    .faq-q.open  { background: var(--blue); color: var(--white); }
+    .faq-toggle {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--light); display: flex; align-items: center;
+      justify-content: center; font-size: 20px; font-weight: 300;
+      transition: transform .3s, background .2s; flex-shrink: 0; line-height: 1;
+    }
+    .faq-q.open .faq-toggle {
+      background: rgba(255,255,255,.2); color: white; transform: rotate(45deg);
+    }
+    .faq-a {
+      display: none; padding: 18px 24px 22px;
+      font-size: 15px; line-height: 1.75; color: var(--gray);
+      border-top: 1px solid var(--gray-light);
+    }
+    .faq-a.open { display: block; }
+
+    /* ============================================================
+       FINAL CTA BAND
+    ============================================================ */
+    #final-cta {
+      padding: 96px 24px;
+      background: linear-gradient(135deg, #07101e 0%, #1a3a6e 100%);
+      color: var(--white); text-align: center;
+    }
+    .final-inner { max-width: 700px; margin: 0 auto; }
+    .final-inner h2 {
+      font-size: clamp(30px, 5vw, 54px); font-weight: 900;
+      line-height: 1.15; margin-bottom: 14px;
+    }
+    .final-inner h2 em { color: #93c5fd; font-style: normal; }
+    .final-inner > p { font-size: 18px; opacity: .8; margin-bottom: 44px; }
+
+    .final-form {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 16px; padding: 40px;
+    }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 14px;
+    }
+    @media (max-width: 580px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 0; }
+    .form-group input,
+    .form-group select {
+      width: 100%; padding: 14px 15px; border-radius: var(--radius);
+      border: 1.5px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.09); color: var(--white);
+      font-size: 15px; font-family: inherit; transition: border-color .2s;
+      appearance: none;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,.48); }
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none; border-color: #93c5fd; background: rgba(255,255,255,.14);
+    }
+    .form-group select option { background: #1a2a4a; color: white; }
+    .form-single { margin-bottom: 14px; }
+    .form-consent {
+      font-size: 12px; opacity: .55; text-align: left;
+      margin: 12px 0 22px; line-height: 1.55;
+    }
+    .form-consent a { color: #93c5fd; }
+    .form-submit {
+      width: 100%; padding: 17px; font-size: 18px; font-weight: 700;
+      background: var(--blue); color: white; border: none;
+      border-radius: var(--radius); cursor: pointer;
+      transition: var(--transition); font-family: inherit;
+    }
+    .form-submit:hover {
+      background: var(--blue-dark); transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37,99,235,.45);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #footer { background: #06101e; color: rgba(255,255,255,.72); padding: 64px 24px 28px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.1fr;
+      gap: 48px; max-width: 1200px; margin: 0 auto 52px;
+    }
+    @media (max-width: 960px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    .footer-brand .logo { color: white; margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; line-height: 1.75; opacity: .65; margin-bottom: 22px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .social-link:hover { background: var(--blue); }
+    .social-link svg { width: 17px; height: 17px; fill: white; }
+
+    .footer-col h4 {
+      font-size: 13px; font-weight: 700; color: white;
+      text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 18px;
+    }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 14px; transition: color .2s; }
+    .footer-col ul li a:hover { color: white; }
+
+    .footer-contact-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 14px; font-size: 14px; line-height: 1.55;
+    }
+    .footer-contact-row svg { width: 16px; height: 16px; fill: #60a5fa; flex-shrink: 0; margin-top: 2px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.09);
+      padding-top: 24px; max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-bottom p { font-size: 13px; opacity: .45; }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 13px; opacity: .45; transition: opacity .2s; }
+    .footer-legal a:hover { opacity: 1; }
+
+    /* ============================================================
+       MODALS — SHARED OVERLAY
+    ============================================================ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,.7); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity .3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: var(--white); border-radius: 16px; padding: 44px;
+      max-width: 520px; width: 100%; max-height: 90vh; overflow-y: auto;
+      transform: scale(.95) translateY(20px);
+      transition: transform .3s ease; position: relative;
+    }
+    .modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; width: 36px; height: 36px;
+      border-radius: 50%; background: var(--light); border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; line-height: 1; color: var(--gray);
+      cursor: pointer; transition: var(--transition);
+    }
+    .modal-close:hover { background: var(--gray-light); color: var(--dark); }
+
+    .modal-title { font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .modal-sub   { font-size: 15px; color: var(--gray); margin-bottom: 28px; }
+
+    .modal-form .field { margin-bottom: 16px; }
+    .modal-form label {
+      display: block; font-size: 14px; font-weight: 600;
+      color: var(--dark-2); margin-bottom: 6px;
+    }
+    .modal-form input,
+    .modal-form select {
+      width: 100%; padding: 12px 14px; border-radius: var(--radius);
+      border: 1.5px solid var(--gray-light); font-size: 15px;
+      font-family: inherit; color: var(--dark); background: var(--white);
+      transition: border-color .2s; appearance: none;
+    }
+    .modal-form input:focus,
+    .modal-form select:focus { outline: none; border-color: var(--blue); }
+    .modal-consent { font-size: 12px; color: var(--gray); margin: 10px 0 20px; line-height: 1.55; }
+    .modal-consent a { color: var(--blue); }
+    .modal-submit {
+      width: 100%; padding: 15px; background: var(--blue); color: white;
+      border: none; border-radius: var(--radius);
+      font-size: 17px; font-weight: 700; cursor: pointer;
+      transition: var(--transition); font-family: inherit;
+    }
+    .modal-submit:hover {
+      background: var(--blue-dark); transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37,99,235,.35);
+    }
+    .modal-success {
+      text-align: center; padding: 36px 20px;
+      display: none;
+    }
+    .success-icon { font-size: 56px; margin-bottom: 16px; }
+    .success-title { font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+    .success-body  { color: var(--gray); font-size: 16px; line-height: 1.6; }
+
+    /* ============================================================
+       QUIZ MODAL — EXTRA STYLES
+    ============================================================ */
+    .quiz-progress { height: 4px; background: var(--gray-light); border-radius: 2px; margin-bottom: 24px; }
+    .quiz-bar      { height: 100%; background: var(--blue); border-radius: 2px; transition: width .35s ease; }
+    .quiz-step     { display: none; }
+    .quiz-step.active { display: block; }
+
+    .quiz-options {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin: 20px 0;
+    }
+    @media (max-width: 480px) { .quiz-options { grid-template-columns: 1fr; } }
+    .quiz-opt {
+      padding: 16px 12px; border-radius: 10px;
+      border: 2px solid var(--gray-light);
+      text-align: center; cursor: pointer; font-weight: 600; font-size: 15px;
+      transition: var(--transition); color: var(--dark);
+      background: var(--white); font-family: inherit;
+    }
+    .quiz-opt:hover  { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+    .quiz-opt.picked { border-color: var(--blue); background: var(--blue-light); color: var(--blue); }
+    .quiz-opt-icon   { font-size: 30px; display: block; margin-bottom: 8px; }
+
+    .quiz-nav {
+      display: flex; justify-content: flex-end;
+      align-items: center; margin-top: 16px; gap: 12px;
+    }
+    .quiz-back-btn {
+      background: none; border: none; color: var(--gray); font-size: 14px;
+      cursor: pointer; padding: 8px 0; font-family: inherit;
+      margin-right: auto;
+    }
+    .quiz-next-btn {
+      padding: 11px 26px; background: var(--blue); color: white; border: none;
+      border-radius: var(--radius); font-weight: 700; font-size: 15px;
+      cursor: pointer; font-family: inherit; transition: background .2s;
+    }
+    .quiz-next-btn:hover { background: var(--blue-dark); }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       RESPONSIVE MISC
+    ============================================================ */
+    @media (max-width: 768px) {
+      #why-us, #testimonials, #programs, #get-started,
+      #instructors, #google-reviews, #faq { padding: 64px 24px; }
+      .modal-box { padding: 28px 20px; }
+      .final-form { padding: 28px 20px; }
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn { min-width: unset; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER — STICKY
+============================================================ -->
+<header id="header">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="index.html" class="logo" aria-label="Tiger Paw Martial Arts Home">
+        <img src="images/logo.png" alt="Tiger Paw Martial Arts" height="48" style="height:48px;width:auto;display:block">
+      </a>
+
+      <nav id="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="#" onclick="openModal('modal-kit');return false">Pricing</a>
+
+        <div class="nav-dropdown">
+          <a href="programs.html">Programs</a>
+          <div class="dropdown-menu">
+            <a href="program-1.html">Kids Martial Arts</a>
+            <a href="program-2.html">Teens &amp; Adult Taekwondo</a>
+          </div>
+        </div>
+
+        <a href="quick-tour.html">Quick Tour</a>
+
+        <div class="nav-dropdown">
+          <a href="#">More</a>
+          <div class="dropdown-menu">
+            <a href="schedules.html">Member Schedules</a>
+            <a href="news.html">News</a>
+          </div>
+        </div>
+      </nav>
+
+      <button class="btn btn-primary header-cta" onclick="openModal('modal-trial')">
+        Get Started
+      </button>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     HERO — FULL VIEWPORT
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg" style="background-image:url('images/coach-demo.webp')"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">
+      Build Confidence, Discipline and Strength<br><span>with the #1 Martial Arts School in Middle River, Maryland</span>
+    </h1>
+    <p class="hero-sub">
+      Middle River's most welcoming school for kids and adults — no experience needed.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="openModal('modal-trial')">Book Free Intro Session</button>
+      <button class="btn btn-ghost" onclick="openModal('modal-kit')">Claim Your Starter Pass</button>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     MISSION BAND
+============================================================ -->
+<section id="mission-band" aria-label="Mission statement">
+  <div class="mission-inner">
+    <h2>Your <em>achievement</em> is our mission.</h2>
+    <p>Every student. Every goal. Every belt. We're here every step of the way.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SOCIAL PROOF BAR — animated counters
+============================================================ -->
+<section id="social-proof" aria-label="Key statistics">
+  <div class="proof-grid">
+    <div class="proof-item">
+      <div class="proof-stars" aria-hidden="true">★★★★★</div>
+      <div class="proof-rating">4.9</div>
+      <div class="proof-label">Average Star Rating</div>
+    </div>
+    <div class="proof-item">
+      <!-- SWAP: Set data-count to actual review count, e.g. data-count="247" -->
+      <div class="proof-number" data-count="61" data-suffix="+" aria-label="61+ reviews">0</div>
+      <div class="proof-label">5-Star Google Reviews</div>
+    </div>
+    <div class="proof-item">
+      <!-- SWAP: Set data-count to actual student count, e.g. data-count="1200" -->
+      <div class="proof-number" data-count="300" data-suffix="+" aria-label="300+ students">0</div>
+      <div class="proof-label">Students Trained</div>
+    </div>
+    <div class="proof-item">
+      <!-- SWAP: Set data-count to years in operation, e.g. data-count="12" -->
+      <div class="proof-number" data-count="20" data-suffix="" aria-label="20 years">0</div>
+      <div class="proof-label">Years of Excellence</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <span class="eyebrow">What Our Community Says</span>
+    <h2 class="section-title">Real Stories. Real Results.</h2>
+  </div>
+
+  <div class="testimonials-grid">
+
+    <article class="testi-card reveal">
+      <p class="testi-text">
+        "Seeing my daughter's confidence go from 20% to 80% in the first 3 months — I'm highly impressed. She's now strong, fast, respectful, and able to defend herself."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#2563eb,#1d4ed8)">M</div>
+        <div>
+          <div class="testi-name">Mope</div>
+          <div class="testi-role">Parent of Student</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="testi-card reveal">
+      <p class="testi-text">
+        "Students are not simply given a belt. They have to learn the material and demonstrate techniques before advancing. It's a serious black belt school that cares about real progress."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#059669,#0284c7)">T</div>
+        <div>
+          <div class="testi-name">Terrill Harris</div>
+          <div class="testi-role">Adult Student</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="testi-card reveal">
+      <p class="testi-text">
+        "Tiger Paw professionals have brought out the best in our five children (ages 6–10). The character, personal growth, and development this training provides has a lasting impact."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#d97706,#dc2626)">P</div>
+        <div>
+          <div class="testi-name">Penelope Soteria</div>
+          <div class="testi-role">Parent of Five Students</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+<section id="why-us">
+  <div class="why-header section-header reveal">
+    <span class="eyebrow" style="color:#93c5fd">Why Tiger Paw Martial Arts</span>
+    <h2 class="section-title" style="color:white">The Tiger Paw Martial Arts Difference</h2>
+    <p class="section-sub">We don't just teach martial arts — we build better people.</p>
+  </div>
+
+  <div class="why-grid">
+
+    <div class="why-card reveal">
+      <div class="why-icon" aria-hidden="true">
+        <!-- Icon: star / world-class instruction -->
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <h3>Serious Black Belt School</h3>
+      <p>Students earn every belt by demonstrating real technique — we don't hand out ranks. With a 4.9-star Google rating and 20 years in Middle River, our standards speak for themselves.</p>
+    </div>
+
+    <div class="why-card reveal">
+      <div class="why-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      </div>
+      <h3>Welcoming to All Ages &amp; Levels</h3>
+      <p>From ages 4 to adult, complete beginners to returning martial artists — everyone feels at home at Tiger Paw. This is a family, not just a gym.</p>
+    </div>
+
+    <div class="why-card reveal">
+      <div class="why-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+      </div>
+      <h3>Results You Can See</h3>
+      <p>Parents report improvements in focus, confidence, and respect within the first 30–60 days. Our structured Taekwondo curriculum ensures every student progresses at every level.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PROGRAMS — 3 CARDS
+============================================================ -->
+<section id="programs">
+  <div class="section-header reveal">
+    <span class="eyebrow">What We Offer</span>
+    <h2 class="section-title">Our Programs</h2>
+    <p class="section-sub">Something for everyone — from toddlers to adults, beginners to competitors.</p>
+  </div>
+
+  <div class="programs-grid">
+
+    <article class="program-card reveal">
+      <img src="images/kids-class-2.webp" alt="Kids Martial Arts at Tiger Paw" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block">
+      <div class="program-body">
+        <span class="program-tag">Ages 4–12</span>
+        <h3>Kids Martial Arts</h3>
+        <p>Fun, safe Taekwondo classes that build discipline, confidence, and self-defense skills. Every belt is earned — our standards are real.</p>
+        <div class="program-meta">
+          <span>Tue / Thu / Sat</span>
+          <span>60-min classes</span>
+        </div>
+        <a href="program-1.html" class="btn btn-primary">Learn More</a>
+      </div>
+    </article>
+
+    <article class="program-card reveal">
+      <img src="images/facility-1.webp" alt="Teen and Adult Taekwondo at Tiger Paw" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block">
+      <div class="program-body">
+        <span class="program-tag">Ages 13 &amp; Up</span>
+        <h3>Teens &amp; Adult Taekwondo</h3>
+        <p>Build real self-defense skills, get fit, and develop mental toughness. No experience required — beginner-friendly and welcoming to all levels.</p>
+        <div class="program-meta">
+          <span>Mon / Wed / Thu</span>
+          <span>60-min classes</span>
+        </div>
+        <a href="program-2.html" class="btn btn-primary">Learn More</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HOW TO GET STARTED — 3 STEPS
+============================================================ -->
+<section id="get-started">
+  <div class="section-header reveal">
+    <span class="eyebrow">Simple Process</span>
+    <h2 class="section-title">How To Get Started</h2>
+    <p class="section-sub">Three easy steps to your first class — no experience required.</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="steps-connector" aria-hidden="true"></div>
+
+    <div class="step-card reveal">
+      <div class="step-num" aria-hidden="true">1</div>
+      <h3>Book Your Free Trial</h3>
+      <p>Click the button below or call us at <strong>(410) 248-0606</strong> to book your free intro session at a time that works for you.</p>
+    </div>
+
+    <div class="step-card reveal">
+      <div class="step-num" aria-hidden="true">2</div>
+      <h3>Come Try It Out</h3>
+      <p>Arrive in comfortable workout clothes. We'll give you a tour, introduce you to the team, and guide you through your first session.</p>
+    </div>
+
+    <div class="step-card reveal">
+      <div class="step-num" aria-hidden="true">3</div>
+      <h3>Join the Family</h3>
+      <p>If you love it — and you will — we'll find the perfect program and membership that fits your goals, schedule, and budget.</p>
+    </div>
+  </div>
+
+  <div class="get-started-cta reveal">
+    <button class="btn btn-primary" style="padding:18px 48px;font-size:18px" onclick="openModal('modal-trial')">
+      Book Your Free Intro Session
+    </button>
+    <p>No commitment. No experience needed. Just show up.</p>
+  </div>
+</section>
+
+
+
+<!-- ============================================================
+     GOOGLE REVIEWS — 4 CARDS
+============================================================ -->
+<section id="google-reviews">
+  <div class="section-header reveal">
+    <div class="google-badge" aria-hidden="true">
+      <div class="google-g">G</div>
+      <span class="google-badge-label">Google Reviews</span>
+    </div>
+    <div style="color:#f59e0b;font-size:28px;letter-spacing:3px;margin-bottom:8px" aria-hidden="true">★★★★★</div>
+    <p class="section-sub">Rated <strong>4.9</strong> from <strong>61+ reviews</strong> on Google</p>
+  </div>
+
+  <div class="reviews-grid">
+
+    <article class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-info">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#4285f4,#34a853)">M</div>
+          <div>
+            <div class="reviewer-name">Mope</div>
+            <div class="review-date">3 months ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <p class="review-text">"Seeing my daughter&#x2019;s confidence go from 20% to 80% in the first 3 months &#x2014; I&#x2019;m highly impressed. She&#x2019;s now strong, fast, respectful, and able to defend herself."</p>
+      <p class="via-google">via Google</p>
+    </article>
+
+    <article class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-info">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#ea4335,#fbbc04)">T</div>
+          <div>
+            <div class="reviewer-name">Terrill Harris</div>
+            <div class="review-date">1 month ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <p class="review-text">"Students are not simply given a belt. They have to learn the material and demonstrate techniques before advancing. It&#x2019;s a serious black belt school that cares about real progress."</p>
+      <p class="via-google">via Google</p>
+    </article>
+
+    <article class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-info">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#34a853,#1a73e8)">R</div>
+          <div>
+            <div class="reviewer-name">RD P</div>
+            <div class="review-date">2 months ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <p class="review-text">"We love the classes &#x2014; from forms to sparring to Tai Boxing. The instructors are awesome, patient and knowledgeable. Best martial arts school in the area."</p>
+      <p class="via-google">via Google</p>
+    </article>
+
+    <article class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-info">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#fbbc04,#ea4335)">P</div>
+          <div>
+            <div class="reviewer-name">Penelope Soteria</div>
+            <div class="review-date">6 months ago</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+      </div>
+      <p class="review-text">"Tiger Paw professionals have brought out the best in our five children ages 6 to 10. The character, personal growth, and development this training provides is truly a lasting impact."</p>
+      <p class="via-google">via Google</p>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ ACCORDION — 8 QUESTIONS
+============================================================ -->
+<section id="faq">
+  <div class="section-header reveal">
+    <span class="eyebrow">Got Questions?</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq-wrap" role="list">
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        Do I need any experience to start?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        Absolutely not! Most of our students start with zero martial arts experience. Our intro classes and fundamentals programs are specifically designed for complete beginners. Our coaches will meet you exactly where you are and guide you step by step.
+      </div>
+    </div>
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        How old do kids need to be to start?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        We welcome kids as young as 4 years old in our Kids Martial Arts program. Our Kids classes (ages 4–12) and Teens &amp; Adult Taekwondo (ages 13+) ensure every student trains at the right level.
+      </div>
+    </div>
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        How much does membership cost?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        We offer several membership options to fit different budgets and goals. Pricing varies based on program and membership type. The best way to get current details is to claim our 3-Class Starter Pass — you'll get 3 classes plus a free Tiger Paw t-shirt for just $29, and we'll share full membership options after your first session.
+      </div>
+    </div>
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        What should I wear to my first class?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        For your free trial, just wear comfortable athletic clothes — shorts and a t-shirt are perfect. No special equipment or uniform is needed until you decide to join. We'll let you know exactly what gear is required after your trial class.
+      </div>
+    </div>
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        How often should I train to see results?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        We recommend training 2–3 times per week for consistent progress. Most students notice real improvements in fitness, focus, and technique within the first 30–60 days. The more consistent you are, the faster you'll advance.
+      </div>
+    </div>
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        Is martial arts safe for my child?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        Safety is our top priority, especially for our youngest students. Kids classes are structured, supervised, and taught with age-appropriate techniques. All equipment is maintained to the highest standards, and our coaches are trained in child development and safety protocols. Martial arts is consistently ranked among the safest youth sports.
+      </div>
+    </div>
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        Do you offer family discounts?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        Yes! We offer family membership packages for households with multiple training members. Ask about our family rates during your free trial. We believe training together as a family is one of the most powerful things you can do.
+      </div>
+    </div>
+
+    <div class="faq-item reveal" role="listitem">
+      <div class="faq-q" onclick="toggleFaq(this)" role="button" aria-expanded="false">
+        What if I can't make it to classes regularly?
+        <span class="faq-toggle" aria-hidden="true">+</span>
+      </div>
+      <div class="faq-a">
+        Life happens! We offer flexible make-up class policies and some membership tiers include open mat times so you can train around your schedule. Just talk to us — we'll find a solution that keeps you progressing.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FINAL CTA BAND
+============================================================ -->
+<section id="final-cta">
+  <div class="final-inner reveal">
+    <h2>More Confidence.<br><em>More Focus.</em></h2>
+    <p>Take the first step toward the best version of yourself. Book your free trial or get our full pricing and schedule sent directly to you.</p>
+
+    <!-- SWAP: Update the form action to a real webhook URL below -->
+    <div class="final-form">
+      <form id="form-final" onsubmit="handleFinalForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" name="firstName" placeholder="First Name" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <input type="text" name="lastName" placeholder="Last Name" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email Address" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-single">
+          <select name="program" aria-label="Interested program">
+            <option value="" disabled selected>Interested In…</option>
+            <option value="kids">Kids Martial Arts (Ages 4–12)</option>
+            <option value="adults">Teens &amp; Adult Taekwondo (Ages 13+)</option>
+            <option value="not-sure">Not Sure Yet</option>
+          </select>
+        </div>
+        <p class="form-consent">
+          By submitting you agree to receive SMS/text messages from Tiger Paw Martial Arts at the number provided.
+          Message frequency varies. Reply STOP to unsubscribe. View our
+          <a href="#">Privacy Policy</a>.
+        </p>
+        <button type="submit" class="form-submit">Get Free Trial + Schedule →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="footer">
+  <div class="footer-grid">
+
+    <!-- Brand column -->
+    <div class="footer-brand">
+      <!-- SWAP: Replace with actual logo image -->
+      <a href="#" class="logo" aria-label="Tiger Paw Martial Arts Home">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.5v7l-8 4-8-4v-7l8-4.32z"/></svg>
+        </div>
+        Tiger Paw Martial Arts
+      </a>
+      <p>Tiger Paw Martial Arts has been Middle River's trusted Taekwondo school since 2006. We develop confidence, discipline, and real self-defense skills in kids and adults of all experience levels.</p>
+      <div class="social-links" aria-label="Social media links">
+        <!-- SWAP: Update href attributes with actual social profile URLs -->
+        <a href="https://www.facebook.com/TigerPawMA/" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/tigerpaw_martial_arts/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="white" d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="#06101e" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="white" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.85a8.17 8.17 0 004.77 1.52V6.93a4.85 4.85 0 01-1-.24z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Programs column -->
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="program-1.html">Kids Martial Arts</a></li>
+        <li><a href="program-2.html">Teens &amp; Adult Taekwondo</a></li>
+      </ul>
+    </div>
+
+    <!-- Useful Resources column -->
+    <div class="footer-col">
+      <h4>Useful Resources</h4>
+      <ul>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#" onclick="openModal('modal-trial');return false">Book Free Trial</a></li>
+        <li><a href="#" onclick="openModal('modal-kit');return false">Pricing &amp; Schedule</a></li>
+        <li><a href="#google-reviews">Reviews</a></li>
+        <li><a href="news.html">News &amp; Updates</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact column -->
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <address style="font-style:normal">
+        <div class="footer-contact-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          117 Beacon Road, Victory Villa Shopping Center<br>Middle River, MD 21220
+        </div>
+        <div class="footer-contact-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <a href="tel:(410) 248-0606">(410) 248-0606</a>
+        </div>
+        <div class="footer-contact-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <a href="mailto:mastershelley@tigerpawma.com">mastershelley@tigerpawma.com</a>
+        </div>
+        <div class="footer-contact-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          Mon–Fri 3:00pm–8:30pm · Sat 9:00am–12:00pm
+        </div>
+      </address>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2006 Tiger Paw Martial Arts. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     MODAL: BOOK FREE TRIAL
+     SWAP webhook: replace [TRIAL_WEBHOOK_URL] in JS below
+============================================================ -->
+<div class="modal-overlay" id="modal-trial" role="dialog" aria-modal="true" aria-labelledby="title-trial" onclick="closeOnOverlay(event,'modal-trial')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-trial')" aria-label="Close dialog">×</button>
+
+    <div id="modal-trial-body">
+      <h2 class="modal-title" id="title-trial">Book Your Free Intro Session</h2>
+      <p class="modal-sub">No commitment. No experience needed. Come try us free.</p>
+
+      <form class="modal-form" id="form-trial" onsubmit="submitModal(event,'modal-trial','[TRIAL_WEBHOOK_URL]')">
+        <div class="field">
+          <label for="tr-name">Name</label>
+          <input id="tr-name" type="text" name="name" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="tr-email">Email</label>
+          <input id="tr-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="tr-phone">Phone</label>
+          <input id="tr-phone" type="tel" name="phone" placeholder="(555) 555-5555" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="tr-program">Program</label>
+          <select id="tr-program" name="program">
+            <option value="" disabled selected>Select a program…</option>
+            <option value="kids">Kids</option>
+            <option value="teens-adults">Teens &amp; Adults</option>
+            <option value="not-sure">Not Sure</option>
+          </select>
+        </div>
+        <p class="modal-consent">
+          By submitting you agree to receive SMS messages from Tiger Paw Martial Arts.
+          Reply STOP to unsubscribe. Msg &amp; data rates may apply.
+          <a href="#">Privacy Policy</a>.
+        </p>
+        <button type="submit" class="modal-submit">Reserve My Free Session →</button>
+      </form>
+    </div>
+
+    <div class="modal-success" id="modal-trial-success">
+      <div class="success-icon">🥋</div>
+      <h3 class="success-title">You're Booked!</h3>
+      <p class="success-body">We'll be in touch within 24 hours to confirm your free trial. We can't wait to meet you at Tiger Paw Martial Arts!</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     MODAL: DOWNLOAD STARTER KIT / PRICING
+     SWAP webhook: replace [STARTER_KIT_WEBHOOK_URL] in JS below
+============================================================ -->
+<div class="modal-overlay" id="modal-kit" role="dialog" aria-modal="true" aria-labelledby="title-kit" onclick="closeOnOverlay(event,'modal-kit')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-kit')" aria-label="Close dialog">×</button>
+
+    <div id="modal-kit-body">
+      <h2 class="modal-title" id="title-kit">3-Class Starter Pass &#x2014; $29 + Free T-Shirt</h2>
+      <p class="modal-sub">Get 3 classes + a free Tiger Paw t-shirt for just $29. No long-term commitment.</p>
+
+      <form class="modal-form" id="form-kit" onsubmit="submitModal(event,'modal-kit','[STARTER_KIT_WEBHOOK_URL]')">
+        <div class="field">
+          <label for="kit-name">Name</label>
+          <input id="kit-name" type="text" name="name" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="kit-email">Email</label>
+          <input id="kit-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="kit-phone">Phone</label>
+          <input id="kit-phone" type="tel" name="phone" placeholder="(555) 555-5555" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="kit-program">Program</label>
+          <select id="kit-program" name="program">
+            <option value="" disabled selected>Select a program…</option>
+            <option value="kids">Kids</option>
+            <option value="teens-adults">Teens &amp; Adults</option>
+            <option value="not-sure">Not Sure</option>
+          </select>
+        </div>
+        <p class="modal-consent">
+          By submitting you agree to receive SMS messages and promotional content from Tiger Paw Martial Arts.
+          Reply STOP to unsubscribe. Msg &amp; data rates may apply.
+          <a href="#">Privacy Policy</a>.
+        </p>
+        <button type="submit" class="modal-submit">Claim My Starter Pass →</button>
+      </form>
+    </div>
+
+    <div class="modal-success" id="modal-kit-success">
+      <div class="success-icon">📋</div>
+      <h3 class="success-title">On Its Way!</h3>
+      <p class="success-body">Check your inbox — we're sending our full pricing guide and schedule to your email right now.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     MODAL: QUIZ POPUP (fires after 60 s)
+     SWAP webhook: replace [QUIZ_WEBHOOK_URL] in JS below
+     Steps: 1 → 2a/2b → 3a/3b → 4 → success
+============================================================ -->
+<div class="modal-overlay" id="modal-quiz" role="dialog" aria-modal="true" aria-labelledby="title-quiz" onclick="closeOnOverlay(event,'modal-quiz')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-quiz')" aria-label="Close dialog">×</button>
+
+    <!-- Step 1: Who is this for? -->
+    <div class="quiz-step active" id="qz-1">
+      <div class="quiz-progress"><div class="quiz-bar" style="width:12%"></div></div>
+      <h2 class="modal-title" id="title-quiz">Not Sure Where To Start?</h2>
+      <p class="modal-sub">Let's find the perfect program for you in under 60 seconds.</p>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="quizPick(this,'who','for-me');quizTo('qz-2a',28)">
+          <span class="quiz-opt-icon">🥋</span>For Me
+        </button>
+        <button class="quiz-opt" onclick="quizPick(this,'who','for-kids');quizTo('qz-2b',28)">
+          <span class="quiz-opt-icon">👧</span>For My Kids
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2a: For Me — Experience level -->
+    <div class="quiz-step" id="qz-2a">
+      <div class="quiz-progress"><div class="quiz-bar" style="width:28%"></div></div>
+      <h2 class="modal-title">What's your experience level?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="quizPick(this,'exp','beginner')"><span class="quiz-opt-icon">🌱</span>Total Beginner</button>
+        <button class="quiz-opt" onclick="quizPick(this,'exp','some')"><span class="quiz-opt-icon">💪</span>Some Experience</button>
+        <button class="quiz-opt" onclick="quizPick(this,'exp','competitive')"><span class="quiz-opt-icon">🏆</span>Competitive</button>
+        <button class="quiz-opt" onclick="quizPick(this,'exp','returning')"><span class="quiz-opt-icon">🔄</span>Returning Student</button>
+      </div>
+      <div class="quiz-nav">
+        <button class="quiz-back-btn" onclick="quizTo('qz-1',12)">← Back</button>
+        <button class="quiz-next-btn" onclick="quizTo('qz-3a',57)">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 2b: For Kids — Age range -->
+    <div class="quiz-step" id="qz-2b">
+      <div class="quiz-progress"><div class="quiz-bar" style="width:28%"></div></div>
+      <h2 class="modal-title">How old is your child?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="quizPick(this,'age','4-6')"><span class="quiz-opt-icon">🌟</span>Ages 4–6</button>
+        <button class="quiz-opt" onclick="quizPick(this,'age','7-12')"><span class="quiz-opt-icon">⭐</span>Ages 7–12</button>
+        <button class="quiz-opt" onclick="quizPick(this,'age','13plus')"><span class="quiz-opt-icon">🔥</span>Ages 13+</button>
+      </div>
+      <div class="quiz-nav">
+        <button class="quiz-back-btn" onclick="quizTo('qz-1',12)">← Back</button>
+        <button class="quiz-next-btn" onclick="quizTo('qz-3b',57)">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 3a: For Me — Goals -->
+    <div class="quiz-step" id="qz-3a">
+      <div class="quiz-progress"><div class="quiz-bar" style="width:57%"></div></div>
+      <h2 class="modal-title">What's your main goal?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="quizPick(this,'goal','self-defense')"><span class="quiz-opt-icon">🛡️</span>Self-Defense</button>
+        <button class="quiz-opt" onclick="quizPick(this,'goal','fitness')"><span class="quiz-opt-icon">💪</span>Get Fit</button>
+        <button class="quiz-opt" onclick="quizPick(this,'goal','compete')"><span class="quiz-opt-icon">🏆</span>Compete</button>
+        <button class="quiz-opt" onclick="quizPick(this,'goal','confidence')"><span class="quiz-opt-icon">🧠</span>Confidence</button>
+      </div>
+      <div class="quiz-nav">
+        <button class="quiz-back-btn" onclick="quizTo('qz-2a',28)">← Back</button>
+        <button class="quiz-next-btn" onclick="quizTo('qz-4',85)">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 3b: For Kids — What matters most -->
+    <div class="quiz-step" id="qz-3b">
+      <div class="quiz-progress"><div class="quiz-bar" style="width:57%"></div></div>
+      <h2 class="modal-title">What matters most to you?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" onclick="quizPick(this,'kgoal','discipline')"><span class="quiz-opt-icon">📚</span>Discipline</button>
+        <button class="quiz-opt" onclick="quizPick(this,'kgoal','confidence')"><span class="quiz-opt-icon">⭐</span>Confidence</button>
+        <button class="quiz-opt" onclick="quizPick(this,'kgoal','safety')"><span class="quiz-opt-icon">🛡️</span>Safety Skills</button>
+        <button class="quiz-opt" onclick="quizPick(this,'kgoal','fun')"><span class="quiz-opt-icon">🎉</span>Fun &amp; Fitness</button>
+      </div>
+      <div class="quiz-nav">
+        <button class="quiz-back-btn" onclick="quizTo('qz-2b',28)">← Back</button>
+        <button class="quiz-next-btn" onclick="quizTo('qz-4',85)">Next →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Contact form -->
+    <div class="quiz-step" id="qz-4">
+      <div class="quiz-progress"><div class="quiz-bar" style="width:100%"></div></div>
+      <h2 class="modal-title">Almost There!</h2>
+      <p class="modal-sub">We found the perfect program for you. Enter your info and we'll send your personalized recommendation.</p>
+      <form class="modal-form" id="form-quiz" onsubmit="submitModal(event,'modal-quiz','[QUIZ_WEBHOOK_URL]')">
+        <input type="hidden" name="quizAnswers" id="quiz-answers">
+        <div class="field">
+          <label for="qz-name">Name</label>
+          <input id="qz-name" type="text" name="name" placeholder="Full name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="qz-email">Email</label>
+          <input id="qz-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="qz-phone">Phone</label>
+          <input id="qz-phone" type="tel" name="phone" placeholder="(555) 555-5555" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="qz-program">Program</label>
+          <select id="qz-program" name="program">
+            <option value="" disabled selected>Select a program…</option>
+            <option value="kids">Kids</option>
+            <option value="teens-adults">Teens &amp; Adults</option>
+            <option value="not-sure">Not Sure</option>
+          </select>
+        </div>
+        <p class="modal-consent">
+          By submitting you agree to receive SMS messages from Tiger Paw Martial Arts.
+          Reply STOP to unsubscribe. Msg &amp; data rates may apply.
+          <a href="#">Privacy Policy</a>.
+        </p>
+        <button type="submit" class="modal-submit">Get My Personalized Plan →</button>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div class="quiz-step" id="qz-success">
+      <div class="modal-success" style="display:block">
+        <div class="success-icon">🎯</div>
+        <h3 class="success-title">Your Plan Is Ready!</h3>
+        <p class="success-body">Check your inbox — we've sent your personalized program recommendation. A team member will also follow up to answer any questions!</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     JAVASCRIPT — all at bottom of body, no external deps
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Mobile nav ─────────────────────────────────────────── */
+  var navToggle = document.getElementById('nav-toggle');
+  var mainNav   = document.getElementById('main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function () {
+      var open = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('active', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // Close mobile nav on link click
+    mainNav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* ── Dropdown hover delay (300 ms close debounce) ──────── */
+  document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+    var timer = null;
+    dd.addEventListener('mouseenter', function () {
+      clearTimeout(timer);
+      dd.classList.add('open');
+    });
+    dd.addEventListener('mouseleave', function () {
+      timer = setTimeout(function () { dd.classList.remove('open'); }, 300);
+    });
+  });
+
+  /* ── Sticky header shadow ───────────────────────────────── */
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function () {
+    header.style.boxShadow = window.scrollY > 10
+      ? '0 2px 28px rgba(0,0,0,.14)'
+      : '0 2px 20px rgba(0,0,0,.07)';
+  }, { passive: true });
+
+  /* ── Scroll-reveal (IntersectionObserver) ───────────────── */
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ── Animated counters ──────────────────────────────────── */
+  function runCounter(el) {
+    var raw    = (el.getAttribute('data-count') || '').replace(/\D/g, '');
+    var target = parseInt(raw, 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (!target) { el.textContent = el.getAttribute('data-count') + suffix; return; }
+    var start = null;
+    var dur   = 1800;
+    function tick(ts) {
+      if (!start) start = ts;
+      var pct   = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - pct, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+      if (pct < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var countersRan = false;
+  var proofSection = document.getElementById('social-proof');
+  if (proofSection && 'IntersectionObserver' in window) {
+    var countObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !countersRan) {
+        countersRan = true;
+        document.querySelectorAll('[data-count]').forEach(runCounter);
+      }
+    }, { threshold: 0.3 });
+    countObs.observe(proofSection);
+  }
+
+  /* ── Modal system ───────────────────────────────────────── */
+  window.openModal = function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var first = el.querySelector('input, select');
+    if (first) setTimeout(function () { first.focus(); }, 80);
+  };
+  window.closeModal = function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.closeOnOverlay = function (e, id) {
+    if (e.target === e.currentTarget) closeModal(id);
+  };
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(function (m) {
+        m.classList.remove('open');
+      });
+      document.body.style.overflow = '';
+    }
+  });
+
+  /* ── Modal / form submission ────────────────────────────── */
+  window.submitModal = function (e, modalId, webhookUrl) {
+    e.preventDefault();
+    var form = e.target;
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+    var btn  = form.querySelector('[type=submit]');
+    btn.textContent = 'Sending…';
+    btn.disabled    = true;
+
+    // SWAP: replace placeholder tokens with real webhook URLs
+    // Supported: Make.com, Zapier, Go High Level, n8n, etc.
+    if (webhookUrl && webhookUrl.charAt(0) !== '[') {
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).catch(function () {});
+    }
+
+    setTimeout(function () {
+      if (modalId === 'modal-quiz') {
+        document.querySelectorAll('#modal-quiz .quiz-step').forEach(function (s) {
+          s.classList.remove('active');
+        });
+        document.getElementById('qz-success').classList.add('active');
+      } else {
+        var body    = document.getElementById(modalId + '-body');
+        var success = document.getElementById(modalId + '-success');
+        if (body)    body.style.display    = 'none';
+        if (success) success.style.display = 'block';
+      }
+    }, 550);
+  };
+
+  /* ── Final CTA form ─────────────────────────────────────── */
+  window.handleFinalForm = function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+    var btn  = form.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled    = true;
+
+    // SWAP: replace with real webhook URL
+    var url = '[FINAL_CTA_WEBHOOK_URL]';
+    if (url.charAt(0) !== '[') {
+      fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(function () {});
+    }
+
+    setTimeout(function () {
+      form.innerHTML =
+        '<div style="text-align:center;padding:24px 0">' +
+        '<div style="font-size:52px;margin-bottom:14px">✅</div>' +
+        '<h3 style="color:white;font-size:22px;margin-bottom:8px">You\'re all set!</h3>' +
+        '<p style="opacity:.8;font-size:16px">We\'ll be in touch within 24 hours. Welcome to the family!</p>' +
+        '</div>';
+    }, 550);
+  };
+
+  /* ── FAQ accordion ──────────────────────────────────────── */
+  window.toggleFaq = function (qEl) {
+    var aEl   = qEl.nextElementSibling;
+    var isOpen = aEl.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-a.open').forEach(function (a) { a.classList.remove('open'); });
+    document.querySelectorAll('.faq-q.open').forEach(function (q) {
+      q.classList.remove('open');
+      q.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      aEl.classList.add('open');
+      qEl.classList.add('open');
+      qEl.setAttribute('aria-expanded', 'true');
+    }
+  };
+
+  /* ── Quiz logic ─────────────────────────────────────────── */
+  var quizData    = {};
+  var quizHistory = [];
+
+  window.quizPick = function (btn, key, val) {
+    btn.closest('.quiz-options').querySelectorAll('.quiz-opt').forEach(function (b) {
+      b.classList.remove('picked');
+    });
+    btn.classList.add('picked');
+    quizData[key] = val;
+  };
+
+  window.quizTo = function (stepId, pct) {
+    var cur = document.querySelector('#modal-quiz .quiz-step.active');
+    if (cur) { quizHistory.push(cur.id); cur.classList.remove('active'); }
+    var next = document.getElementById(stepId);
+    if (!next) return;
+    next.classList.add('active');
+    var bar = next.querySelector('.quiz-bar');
+    if (bar) bar.style.width = pct + '%';
+    // Hydrate hidden field before contact step
+    if (stepId === 'qz-4') {
+      document.getElementById('quiz-answers').value = JSON.stringify(quizData);
+    }
+  };
+
+  /* ── Quiz 60-second auto-popup ──────────────────────────── */
+  var quizFired = false;
+  var quizTimer = setTimeout(function () {
+    if (!quizFired && !document.querySelector('.modal-overlay.open')) {
+      quizFired = true;
+      openModal('modal-quiz');
+    }
+  }, 60000);
+
+  // Cancel timer if user proactively opens any modal
+  document.querySelectorAll('[onclick*="openModal"]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      clearTimeout(quizTimer);
+      quizFired = true;
+    });
+  });
+
+}());
+</script>
+
+</body>
+</html>

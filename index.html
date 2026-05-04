@@ -1389,7 +1389,7 @@
 
 <!-- ============================================================
      MODAL: BOOK FREE TRIAL
-     SWAP webhook: replace [TRIAL_WEBHOOK_URL] in JS below
+     SWAP webhook: replace https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/691d545a-b5d7-49a3-95f3-1bce33ada3f0 in JS below
 ============================================================ -->
 <div class="modal-overlay" id="modal-trial" role="dialog" aria-modal="true" aria-labelledby="title-trial" onclick="closeOnOverlay(event,'modal-trial')">
   <div class="modal-box">
@@ -1399,7 +1399,7 @@
       <h2 class="modal-title" id="title-trial">Book Your Free Intro Session</h2>
       <p class="modal-sub">No commitment. No experience needed. Come try us free.</p>
 
-      <form class="modal-form" id="form-trial" onsubmit="submitModal(event,'modal-trial','[TRIAL_WEBHOOK_URL]')">
+      <form class="modal-form" id="form-trial" onsubmit="submitModal(event,'modal-trial','https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/691d545a-b5d7-49a3-95f3-1bce33ada3f0')">
         <div class="field">
           <label for="tr-name">Name</label>
           <input id="tr-name" type="text" name="name" placeholder="Your full name" required autocomplete="name">
@@ -1441,7 +1441,7 @@
 
 <!-- ============================================================
      MODAL: DOWNLOAD STARTER KIT / PRICING
-     SWAP webhook: replace [STARTER_KIT_WEBHOOK_URL] in JS below
+     SWAP webhook: replace https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/Ta6mCzoxZvwmZfhcW8aU in JS below
 ============================================================ -->
 <div class="modal-overlay" id="modal-kit" role="dialog" aria-modal="true" aria-labelledby="title-kit" onclick="closeOnOverlay(event,'modal-kit')">
   <div class="modal-box">
@@ -1451,7 +1451,7 @@
       <h2 class="modal-title" id="title-kit">3-Class Starter Pass &#x2014; $29 + Free T-Shirt</h2>
       <p class="modal-sub">Get 3 classes + a free Tiger Paw t-shirt for just $29. No long-term commitment.</p>
 
-      <form class="modal-form" id="form-kit" onsubmit="submitModal(event,'modal-kit','[STARTER_KIT_WEBHOOK_URL]')">
+      <form class="modal-form" id="form-kit" onsubmit="submitModal(event,'modal-kit','https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/Ta6mCzoxZvwmZfhcW8aU')">
         <div class="field">
           <label for="kit-name">Name</label>
           <input id="kit-name" type="text" name="name" placeholder="Your full name" required autocomplete="name">
@@ -1493,7 +1493,7 @@
 
 <!-- ============================================================
      MODAL: QUIZ POPUP (fires after 60 s)
-     SWAP webhook: replace [QUIZ_WEBHOOK_URL] in JS below
+     SWAP webhook: replace https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/AoENcIMZUnMcBKYGpxoJ in JS below
      Steps: 1 → 2a/2b → 3a/3b → 4 → success
 ============================================================ -->
 <div class="modal-overlay" id="modal-quiz" role="dialog" aria-modal="true" aria-labelledby="title-quiz" onclick="closeOnOverlay(event,'modal-quiz')">
@@ -1583,7 +1583,7 @@
       <div class="quiz-progress"><div class="quiz-bar" style="width:100%"></div></div>
       <h2 class="modal-title">Almost There!</h2>
       <p class="modal-sub">We found the perfect program for you. Enter your info and we'll send your personalized recommendation.</p>
-      <form class="modal-form" id="form-quiz" onsubmit="submitModal(event,'modal-quiz','[QUIZ_WEBHOOK_URL]')">
+      <form class="modal-form" id="form-quiz" onsubmit="submitModal(event,'modal-quiz','https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/AoENcIMZUnMcBKYGpxoJ')">
         <input type="hidden" name="quizAnswers" id="quiz-answers">
         <div class="field">
           <label for="qz-name">Name</label>
@@ -1788,7 +1788,7 @@
     btn.disabled    = true;
 
     // SWAP: replace with real webhook URL
-    var url = '[FINAL_CTA_WEBHOOK_URL]';
+    var url = 'https://services.leadconnectorhq.com/hooks/JnIWHyjZMYirq6yflQwH/webhook-trigger/691d545a-b5d7-49a3-95f3-1bce33ada3f0';
     if (url.charAt(0) !== '[') {
       fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).catch(function () {});
     }

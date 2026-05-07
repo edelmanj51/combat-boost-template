@@ -439,40 +439,29 @@
     /* ============================================================
        INSTRUCTORS
     ============================================================ */
-    #instructors { padding: 88px 24px; background: var(--light); }
+    #instructors { padding: 88px 24px; background: var(--white); }
     .instructors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 28px; max-width: 1100px; margin: 52px auto 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px; max-width: 1100px; margin: 52px auto 0;
     }
-    .instructor-card {
-      background: var(--white); border-radius: var(--radius-lg);
-      overflow: hidden; box-shadow: var(--shadow); text-align: center;
-    }
+    @media (max-width: 768px) { .instructors-grid { grid-template-columns: 1fr; gap: 40px; } }
+    @media (min-width: 769px) and (max-width: 1024px) { .instructors-grid { grid-template-columns: repeat(2, 1fr); } }
+    .instructor-card { background: transparent; }
     .instructor-photo {
-      /* SWAP: Replace with <img src="instructor.jpg" alt="Name"> */
-      height: 290px; overflow: hidden;
-      background: linear-gradient(180deg, #1a3a6e 0%, #374151 100%);
+      /* SWAP: Replace with <img src="instructor.jpg" alt="Name" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"> */
+      width: 100%; aspect-ratio: 4/3; overflow: hidden;
+      background: #d1d5db;
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.22); font-size: 12px;
+      color: rgba(0,0,0,.3); font-size: 11px;
       font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 16px;
     }
-    .instructor-card.featured .instructor-photo {
-      height: 330px;
-      background: linear-gradient(180deg, #1a3a6e 0%, #2563eb 100%);
-    }
-    .instructor-info { padding: 26px; }
-    .instructor-badge {
-      display: inline-block; background: #fef3c7; color: #92400e;
-      padding: 3px 12px; border-radius: 20px; font-size: 12px;
-      font-weight: 700; margin-bottom: 8px;
-    }
-    .instructor-badge.coach {
-      background: var(--blue-light); color: var(--blue-dark);
-    }
-    .instructor-name  { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
-    .instructor-title { font-size: 14px; color: var(--blue); font-weight: 600; margin-bottom: 12px; }
-    .instructor-bio   { font-size: 14px; color: var(--gray); line-height: 1.65; }
+    .instructor-card.featured .instructor-photo { background: #c4c9d0; }
+    .instructor-info { padding: 0; }
+    .instructor-name  { font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+    .instructor-title { font-size: 14px; color: var(--gray); font-weight: 600; margin-bottom: 12px; }
+    .instructor-bio   { font-size: 14px; color: var(--gray); line-height: 1.75; }
 
     /* ============================================================
        GOOGLE REVIEWS
@@ -763,6 +752,50 @@
     .quiz-next-btn:hover { background: var(--blue-dark); }
 
     /* ============================================================
+       GOOGLE MAPS — HOME PAGE ONLY
+    ============================================================ */
+    #google-maps {
+      position: relative; width: 100%; height: 480px; overflow: hidden;
+    }
+    #google-maps iframe {
+      width: 100%; height: 100%; border: 0; display: block;
+    }
+    .maps-overlay {
+      position: absolute; top: 20px; left: 20px;
+      background: white; border-radius: 12px;
+      padding: 18px 20px; box-shadow: 0 4px 24px rgba(0,0,0,.20);
+      max-width: 260px; z-index: 10;
+    }
+    .maps-overlay-name {
+      font-size: 15px; font-weight: 800; color: var(--dark);
+      margin-bottom: 4px; line-height: 1.3;
+    }
+    .maps-overlay-address {
+      font-size: 12px; color: var(--gray); margin-bottom: 10px; line-height: 1.45;
+    }
+    .maps-overlay-rating {
+      display: flex; align-items: center; gap: 6px; margin-bottom: 12px;
+    }
+    .maps-overlay-stars { color: #f59e0b; font-size: 14px; letter-spacing: 1px; }
+    .maps-overlay-score { font-weight: 700; font-size: 14px; color: var(--dark); }
+    .maps-overlay-count { font-size: 12px; color: var(--gray); }
+    .maps-directions-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 7px; width: 100%; padding: 10px 14px;
+      background: var(--blue); color: white; border: none;
+      border-radius: 8px; font-size: 13px; font-weight: 700;
+      cursor: pointer; text-decoration: none; transition: var(--transition);
+      font-family: inherit;
+    }
+    .maps-directions-btn:hover { background: var(--blue-dark); color: white; }
+    .maps-directions-btn svg { width: 15px; height: 15px; fill: white; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      #google-maps { height: 360px; }
+      .maps-overlay { max-width: 200px; padding: 13px 14px; }
+      .maps-overlay-name { font-size: 13px; }
+    }
+
+    /* ============================================================
        SCROLL REVEAL
     ============================================================ */
     .reveal {
@@ -1007,33 +1040,149 @@
 
   <div class="programs-grid">
 
+    <!-- PROGRAM: Little Dragons -->
     <article class="program-card reveal">
-      <img src="images/kids-class-2.webp" alt="Kids Martial Arts at Tiger Paw" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block">
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Little Dragons at Tiger Paw"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
       <div class="program-body">
-        <span class="program-tag">Ages 4–12</span>
-        <h3>Kids Martial Arts</h3>
-        <p>Fun, safe Taekwondo classes that build discipline, confidence, and self-defense skills. Every belt is earned — our standards are real.</p>
+        <span class="program-tag">Ages 4–7</span>
+        <h3>Little Dragons</h3>
+        <p>Our gentlest intro to martial arts — designed for the youngest students. Short, fun classes build listening skills, coordination, and confidence in a safe environment.</p>
         <div class="program-meta">
-          <span>Tue / Thu / Sat</span>
-          <span>60-min classes</span>
+          <span>[DAYS]</span>
+          <span>30-min classes</span>
         </div>
-        <a href="program-1.html" class="btn btn-primary">Learn More</a>
+        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
       </div>
     </article>
 
+    <!-- PROGRAM:Kids Karate -->
     <article class="program-card reveal">
-      <img src="images/adult-class.webp" alt="Teen and Adult Taekwondo at Tiger Paw" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block">
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Kids Karate at Tiger Paw"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
       <div class="program-body">
-        <span class="program-tag">Ages 13 &amp; Up</span>
-        <h3>Teens &amp; Adult Taekwondo</h3>
-        <p>Build real self-defense skills, get fit, and develop mental toughness. No experience required — beginner-friendly and welcoming to all levels.</p>
+        <span class="program-tag">Ages 8–12</span>
+        <h3>Kids Karate</h3>
+        <p>Structured classes that teach real striking, kicking, and self-defense while reinforcing discipline, respect, and focus. Belt progression keeps kids motivated.</p>
         <div class="program-meta">
-          <span>Mon / Wed / Thu</span>
+          <span>[DAYS]</span>
           <span>60-min classes</span>
         </div>
-        <a href="program-2.html" class="btn btn-primary">Learn More</a>
+        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
       </div>
     </article>
+
+    <!-- PROGRAM:Teen Karate -->
+    <article class="program-card reveal">
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Teen Karate at Tiger Paw"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <div class="program-body">
+        <span class="program-tag">Ages 13–17</span>
+        <h3>Teen Karate</h3>
+        <p>Teens build real-world confidence, mental toughness, and self-defense skills in a structured environment that holds them to high standards — inside and outside the dojo.</p>
+        <div class="program-meta">
+          <span>[DAYS]</span>
+          <span>60-min classes</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
+      </div>
+    </article>
+
+    <!-- PROGRAM:Adult Karate -->
+    <article class="program-card reveal">
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Adult Karate at Tiger Paw"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <div class="program-body">
+        <span class="program-tag">Ages 18 &amp; Up</span>
+        <h3>Adult Karate</h3>
+        <p>Get fit, relieve stress, and develop practical self-defense skills. All experience levels welcome — from complete beginners to returning martial artists.</p>
+        <div class="program-meta">
+          <span>[DAYS]</span>
+          <span>60-min classes</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
+      </div>
+    </article>
+
+    <!-- PROGRAM:BJJ -->
+    <article class="program-card reveal">
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="BJJ at Tiger Paw"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <div class="program-body">
+        <span class="program-tag">All Ages</span>
+        <h3>BJJ</h3>
+        <p>Brazilian Jiu-Jitsu — the art of ground fighting and submission. Learn takedowns, sweeps, and submissions in a technical, ego-free environment. Gi and no-gi available.</p>
+        <div class="program-meta">
+          <span>[DAYS]</span>
+          <span>60-min classes</span>
+        </div>
+        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MEET THE INSTRUCTORS — NEW SECTION
+     SWAP: Replace [NAME], [TITLE / RANK], and [BIO] for each instructor.
+     SWAP: Replace .instructor-photo div with <img> once real photos are ready.
+     Up to 4 instructor cards supported — uncomment the 4th card below to add one.
+============================================================ -->
+<section id="instructors">
+  <div class="section-header reveal">
+    <span class="eyebrow">Our Team</span>
+    <h2 class="section-title">Meet the Instructors</h2>
+    <p class="section-sub">World-class coaches dedicated to your growth and success.</p>
+  </div>
+
+  <div class="instructors-grid">
+
+    <!-- INSTRUCTOR 1: Head Coach -->
+    <article class="instructor-card featured reveal">
+      <!-- SWAP: Replace this div with <img src="[photo]" alt="[HEAD COACH NAME]" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"> -->
+      <div class="instructor-photo">[INSTRUCTOR PHOTO]</div>
+      <div class="instructor-info">
+        <div class="instructor-name">[HEAD COACH NAME]</div>
+        <div class="instructor-title">[TITLE / RANK]</div>
+        <p class="instructor-bio">[BIO — e.g. Carlos is a devoted martial artist for 30+ years. He earned his Black Belt and has trained students of all ages and backgrounds. His passion is developing confident, disciplined martial artists.]</p>
+      </div>
+    </article>
+
+    <!-- INSTRUCTOR 2 -->
+    <article class="instructor-card reveal">
+      <!-- SWAP: Replace this div with <img src="[photo]" alt="[COACH NAME]" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"> -->
+      <div class="instructor-photo">[INSTRUCTOR PHOTO]</div>
+      <div class="instructor-info">
+        <div class="instructor-name">[COACH NAME]</div>
+        <div class="instructor-title">[TITLE / RANK]</div>
+        <p class="instructor-bio">[BIO — e.g. Coach [NAME] has over 15 years of experience in martial arts. They bring energy, expertise, and encouragement to every class.]</p>
+      </div>
+    </article>
+
+    <!-- INSTRUCTOR 3 -->
+    <article class="instructor-card reveal">
+      <!-- SWAP: Replace this div with <img src="[photo]" alt="[COACH NAME]" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"> -->
+      <div class="instructor-photo">[INSTRUCTOR PHOTO]</div>
+      <div class="instructor-info">
+        <div class="instructor-name">[COACH NAME]</div>
+        <div class="instructor-title">[TITLE / RANK]</div>
+        <p class="instructor-bio">[BIO — e.g. Coach [NAME] has dedicated their career to empowering students through martial arts. Specializing in [DISCIPLINE], they focus on technique, safety, and personal growth.]</p>
+      </div>
+    </article>
+
+    <!-- INSTRUCTOR 4 (optional): Uncomment to add a 4th instructor -->
+    <!--
+    <article class="instructor-card reveal">
+      <div class="instructor-photo">[INSTRUCTOR PHOTO]</div>
+      <div class="instructor-info">
+        <div class="instructor-name">[COACH NAME]</div>
+        <div class="instructor-title">[TITLE / RANK]</div>
+        <p class="instructor-bio">[BIO]</p>
+      </div>
+    </article>
+    -->
 
   </div>
 </section>
@@ -1299,6 +1448,26 @@
       </form>
     </div>
   </div>
+</section>
+
+
+<!-- ============================================================
+     GOOGLE MAPS — HOME PAGE ONLY
+     SWAP: Replace [SCHOOL NAME], [ADDRESS], [CITY, STATE ZIP], [STAR RATING], [REVIEW COUNT]
+     SWAP: Update the iframe src with your real Google Maps embed URL (Maps → Share → Embed a map)
+     SWAP: Update the directions href with your real Google Maps link
+============================================================ -->
+<section id="google-maps" aria-label="Find us on the map">
+
+  <!-- Google Maps Places embed — renders native info card with address, rating, and directions -->
+  <iframe
+    title="Tiger Paw Martial Arts Location"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=117+Beacon+Road+Middle+River+MD+21220"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+
 </section>
 
 
